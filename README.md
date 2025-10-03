@@ -168,3 +168,6 @@ MIT
 2. Run linting before commits
 3. Ensure all tests pass
 4. Update documentation as needed
+=======
+
+>>>>>>> b6b5f7147a23b7c60690737c8a8523d7c8f35249
