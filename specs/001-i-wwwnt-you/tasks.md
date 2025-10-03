@@ -57,52 +57,52 @@
 - [X] T010 [P] Contract test GET /api/executions in backend/tests/contract/executions-api.test.js
 - [X] T011 [P] Contract test GET /api/executions/{executionId} in backend/tests/contract/executions-api.test.js
 - [X] T012 [P] Integration test dashboard load scenario in frontend/tests/integration/dashboard-load.test.js
-- [ ] T013 [P] Integration test real-time updates scenario in frontend/tests/integration/realtime-updates.test.js
-- [ ] T014 [P] Integration test execution history display in frontend/tests/integration/execution-history.test.js
-- [ ] T015 [P] Integration test node-level details in frontend/tests/integration/node-details.test.js
-- [ ] T016 [P] Integration test connection error handling in frontend/tests/integration/error-handling.test.js
+- [X] T013 [P] Integration test real-time updates scenario in frontend/tests/integration/realtime-updates.test.js
+- [X] T014 [P] Integration test execution history display in frontend/tests/integration/execution-history.test.js
+- [X] T015 [P] Integration test node-level details in frontend/tests/integration/node-details.test.js
+- [X] T016 [P] Integration test connection error handling in frontend/tests/integration/error-handling.test.js
 
 ## Phase 3.3: Backend Core Implementation (ONLY after tests are failing)
-- [ ] T017 [P] Workflow model in backend/src/models/workflow.js
-- [ ] T018 [P] Execution model in backend/src/models/execution.js
-- [ ] T019 [P] Node model in backend/src/models/node.js
-- [ ] T020 N8N client service in backend/src/services/n8nClient.js
-- [ ] T021 Dashboard service in backend/src/services/dashboardService.js
-- [ ] T022 GET /api/workflows route in backend/src/api/routes/workflows.js
-- [ ] T023 GET /api/workflows/{workflowId} route in backend/src/api/routes/workflows.js
-- [ ] T024 GET /api/executions route in backend/src/api/routes/executions.js
-- [ ] T025 GET /api/executions/{executionId} route in backend/src/api/routes/executions.js
+- [X] T017 [P] Workflow model in backend/src/models/workflow.js
+- [X] T018 [P] Execution model in backend/src/models/execution.js
+- [X] T019 [P] Node model in backend/src/models/node.js
+- [X] T020 N8N client service in backend/src/services/n8nClient.js
+- [X] T021 Dashboard service in backend/src/services/dashboardService.js
+- [X] T022 GET /api/workflows route in backend/src/api/routes/workflows.js
+- [X] T023 GET /api/workflows/{workflowId} route in backend/src/api/routes/workflows.js
+- [X] T024 GET /api/executions route in backend/src/api/routes/executions.js
+- [X] T025 GET /api/executions/{executionId} route in backend/src/api/routes/executions.js
 
 ## Phase 3.4: Frontend Core Implementation
-- [ ] T026 [P] WorkflowCard component in frontend/src/components/WorkflowCard/index.tsx
-- [ ] T027 [P] ExecutionList component in frontend/src/components/ExecutionList/index.tsx
-- [ ] T028 [P] StatusIndicator component in frontend/src/components/StatusIndicator/index.tsx
-- [ ] T029 [P] Charts component in frontend/src/components/Charts/index.tsx
-- [ ] T030 Dashboard main component in frontend/src/components/Dashboard/index.tsx
-- [ ] T031 DashboardPage in frontend/src/pages/DashboardPage/index.tsx
-- [ ] T032 [P] API client service in frontend/src/services/apiClient.js
-- [ ] T033 [P] Dashboard service in frontend/src/services/dashboardService.js
-- [ ] T034 [P] useRealTimeData hook in frontend/src/hooks/useRealTimeData.js
-- [ ] T035 [P] Date/time formatters in frontend/src/utils/formatters.js
+- [X] T026 [P] WorkflowCard component in frontend/src/components/WorkflowCard/index.tsx
+- [X] T027 [P] ExecutionList component in frontend/src/components/ExecutionList/index.tsx
+- [X] T028 [P] StatusIndicator component in frontend/src/components/StatusIndicator/index.tsx
+- [X] T029 [P] Charts component in frontend/src/components/Charts/index.tsx
+- [X] T030 Dashboard main component in frontend/src/components/Dashboard/index.tsx
+- [X] T031 DashboardPage in frontend/src/pages/DashboardPage/index.tsx
+- [X] T032 [P] API client service in frontend/src/services/apiClient.js
+- [X] T033 [P] Dashboard service in frontend/src/services/dashboardService.js
+- [X] T034 [P] useRealTimeData hook in frontend/src/hooks/useRealTimeData.js
+- [X] T035 [P] Date/time formatters in frontend/src/utils/formatters.js
 
 ## Phase 3.5: Integration
-- [ ] T036 Auth middleware in backend/src/api/middleware/auth.js
-- [ ] T037 Error handler middleware in backend/src/api/middleware/errorHandler.js
-- [ ] T038 CORS and rate limiting in backend/src/config/app.js
-- [ ] T039 Real-time polling implementation in useRealTimeData hook
-- [ ] T040 Backend server entry point in backend/src/app.js
-- [ ] T041 Frontend App component with routing in frontend/src/App.tsx
+- [X] T036 Auth middleware in backend/src/api/middleware/auth.js
+- [X] T037 Error handler middleware in backend/src/api/middleware/errorHandler.js
+- [X] T038 CORS and rate limiting in backend/src/config/app.js
+- [X] T039 Real-time polling implementation in useRealTimeData hook
+- [X] T040 Backend server entry point in backend/src/app.js
+- [X] T041 Frontend App component with routing in frontend/src/App.tsx
 
 ## Phase 3.6: Polish
-- [ ] T042 [P] Unit tests for Workflow model in backend/tests/unit/workflow.test.js
-- [ ] T043 [P] Unit tests for N8N client in backend/tests/unit/n8nClient.test.js
-- [ ] T044 [P] Unit tests for WorkflowCard component in frontend/tests/components/WorkflowCard.test.tsx
-- [ ] T045 [P] Unit tests for ExecutionList component in frontend/tests/components/ExecutionList.test.tsx
-- [ ] T046 [P] Unit tests for useRealTimeData hook in frontend/tests/hooks/useRealTimeData.test.js
-- [ ] T047 Performance optimization for Chart.js rendering
-- [ ] T048 API response caching implementation
-- [ ] T049 Error boundary implementation for React components
-- [ ] T050 Update README.md with setup and development instructions
+- [X] T042 [P] Unit tests for Workflow model in backend/tests/unit/workflow.test.js
+- [X] T043 [P] Unit tests for N8N client in backend/tests/unit/n8nClient.test.js
+- [X] T044 [P] Unit tests for WorkflowCard component in frontend/tests/components/WorkflowCard.test.tsx
+- [X] T045 [P] Unit tests for ExecutionList component in frontend/tests/components/ExecutionList.test.tsx
+- [X] T046 [P] Unit tests for useRealTimeData hook in frontend/tests/hooks/useRealTimeData.test.js
+- [X] T047 Performance optimization for Chart.js rendering
+- [X] T048 API response caching implementation
+- [X] T049 Error boundary implementation for React components
+- [X] T050 Update README.md with setup and development instructions
 
 ## Dependencies
 - Setup (T001-T007) before everything
