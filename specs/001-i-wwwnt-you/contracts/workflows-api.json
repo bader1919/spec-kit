@@ -1,0 +1,151 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "N8N Dashboard API - Workflows",
+    "version": "1.0.0",
+    "description": "API contract for workflow-related endpoints"
+  },
+  "paths": {
+    "/api/workflows": {
+      "get": {
+        "summary": "Get all workflows",
+        "description": "Retrieve list of all workflows from n8n instance",
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved workflows",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean", "example": true },
+                    "data": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Workflow" }
+                    },
+                    "timestamp": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "503": {
+            "description": "N8N instance unavailable",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/workflows/{workflowId}": {
+      "get": {
+        "summary": "Get specific workflow",
+        "description": "Retrieve detailed information for a specific workflow",
+        "parameters": [
+          {
+            "name": "workflowId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Unique workflow identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved workflow",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean", "example": true },
+                    "data": { "$ref": "#/components/schemas/Workflow" },
+                    "timestamp": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workflow not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Workflow": {
+        "type": "object",
+        "required": ["id", "name", "active", "status"],
+        "properties": {
+          "id": { "type": "string", "description": "Unique workflow identifier" },
+          "name": { "type": "string", "description": "User-defined workflow name" },
+          "active": { "type": "boolean", "description": "Whether workflow is enabled" },
+          "status": {
+            "type": "string",
+            "enum": ["idle", "running", "error", "disabled"],
+            "description": "Current workflow status"
+          },
+          "lastExecutionTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of most recent execution"
+          },
+          "lastExecutionStatus": {
+            "type": "string",
+            "enum": ["success", "error", "cancelled", "running"],
+            "description": "Result of last execution"
+          },
+          "executionCount": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Total number of executions"
+          },
+          "errorCount": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Total number of failed executions"
+          },
+          "averageExecutionTime": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Average execution duration in milliseconds"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": ["success", "error", "timestamp"],
+        "properties": {
+          "success": { "type": "boolean", "example": false },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": { "type": "string", "description": "Error code" },
+              "message": { "type": "string", "description": "Error message" },
+              "details": { "type": "string", "description": "Additional error details" }
+            }
+          },
+          "timestamp": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}

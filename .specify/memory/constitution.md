@@ -1,50 +1,46 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: [TEMPLATE] → 1.0.0
+- Initial constitution creation for Spec Kit framework
+- Added sections: All core principles and governance
+- Removed sections: N/A (initial creation)
+- Templates requiring updates: All checked and aligned ✅
+- Follow-up TODOs: None
+-->
+
+# Spec Kit Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Specification-First Development
+Every feature MUST begin with a complete specification before any implementation. Specifications MUST be written in natural language focused on user value and business requirements. No implementation details (technology choices, code structure) are permitted in specifications. Specifications MUST pass clarity validation before proceeding to planning phase.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Test-Driven Development (NON-NEGOTIABLE)
+TDD is mandatory for all implementation work. Tests MUST be written first, MUST fail initially, then implementation follows to make tests pass. The Red-Green-Refactor cycle is strictly enforced. Contract tests, integration tests, and unit tests follow this ordering without exception.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Constitutional Compliance
+All development phases MUST comply with constitutional principles. Constitution checks are performed at key gates: before research, after design, and before implementation. Any constitutional violations MUST be justified in complexity tracking with clear rationale for why simpler alternatives were rejected.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Structured Workflow Phases
+Development MUST follow the six-phase workflow: Specify → Clarify → Plan → Tasks → Analyze → Implement. Each phase has defined inputs, outputs, and completion criteria. No phase may be skipped without explicit justification. Dependencies between phases MUST be respected.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Artifact-Driven Documentation
+Every feature generates structured artifacts in its specs directory: spec.md, plan.md, research.md, data-model.md, contracts/, quickstart.md, and tasks.md. These artifacts MUST maintain consistency and traceability. Cross-artifact analysis validates alignment before implementation begins.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Quality Gates
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+Quality gates are enforced at specific checkpoints to ensure constitutional compliance and artifact quality. Gates include specification completeness validation, constitutional compliance verification, cross-artifact consistency analysis, and test-first implementation verification.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+The framework enforces a branch-based feature development model using numbered branches (###-feature-name). PowerShell scripts automate environment setup, path resolution, and artifact generation. All commands operate through slash command interfaces with JSON-structured script outputs for machine processing.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices and guidelines. Constitutional amendments require documentation of the change rationale, impact analysis on existing artifacts, and version increment following semantic versioning rules. All development work MUST verify compliance with current constitutional principles.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Constitutional violations discovered during development MUST be addressed before proceeding to subsequent phases. Complexity justifications are permitted only when simpler constitutional-compliant alternatives have been evaluated and rejected with documented reasoning.
+
+Agent guidance files (CLAUDE.md, etc.) provide runtime development support but cannot override constitutional requirements. These guidance files MUST stay synchronized with constitutional principles through the update-agent-context script.
+
+**Version**: 1.0.0 | **Ratified**: 2025-10-03 | **Last Amended**: 2025-10-03

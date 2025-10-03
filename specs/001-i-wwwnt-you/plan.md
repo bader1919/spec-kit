@@ -1,8 +1,8 @@
 
-# Implementation Plan: [FEATURE]
+# Implementation Plan: N8N Dashboard
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+**Branch**: `001-i-wwwnt-you` | **Date**: 2025-10-03 | **Spec**: [spec.md](./spec.md)
+**Input**: Feature specification from `D:/GitHub/spec kit/specs/001-i-wwwnt-you/spec.md`
 
 ## Execution Flow (/plan command scope)
 ```
@@ -31,23 +31,30 @@
 - Phase 3-4: Implementation execution (manual or via tools)
 
 ## Summary
-[Extract from feature spec: primary requirement + technical approach from research]
+Build a real-time dashboard that connects to n8n automation platform via REST API to display workflow status, execution history, and detailed node-level performance metrics using widget-based visual components including cards, charts, and status indicators.
 
 ## Technical Context
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Language/Version**: JavaScript/TypeScript with Node.js 18+
+**Primary Dependencies**: React 18+, Express.js, Axios for n8n API, Chart.js for visualizations
+**Storage**: Session storage for dashboard state, no persistent database required
+**Testing**: Jest for unit tests, React Testing Library for component tests, Supertest for API tests
+**Target Platform**: Web browser (Chrome, Firefox, Safari, Edge)
+**Project Type**: web - frontend dashboard + backend API proxy
+**Performance Goals**: Real-time updates every 3-5 seconds, <500ms response time for n8n API calls
+**Constraints**: Must handle n8n API rate limits, graceful degradation on connection failures
+**Scale/Scope**: Single user dashboard, 5-50 workflows typical, last 5 executions displayed
 
 ## Constitution Check
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+**Constitutional Compliance Analysis:**
+- ✅ **Specification-First Development**: Complete specification with clarifications exists
+- ✅ **Test-Driven Development**: Plan includes comprehensive testing strategy (Jest, RTL, Supertest)
+- ✅ **Constitutional Compliance**: This planning phase follows structured workflow
+- ✅ **Structured Workflow Phases**: Following Specify → Clarify → Plan sequence correctly
+- ✅ **Artifact-Driven Documentation**: Plan will generate all required artifacts (research.md, data-model.md, contracts/, quickstart.md)
+
+**Assessment**: PASS - No constitutional violations detected. Project follows web application pattern with proper separation of concerns and testing requirements.
 
 ## Project Structure
 
@@ -63,50 +70,55 @@ specs/[###-feature]/
 ```
 
 ### Source Code (repository root)
-<!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
--->
 ```
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
-
-tests/
-├── contract/
-├── integration/
-└── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
 backend/
 ├── src/
 │   ├── models/
+│   │   ├── workflow.js
+│   │   ├── execution.js
+│   │   └── node.js
 │   ├── services/
-│   └── api/
+│   │   ├── n8nClient.js
+│   │   └── dashboardService.js
+│   ├── api/
+│   │   ├── routes/
+│   │   │   ├── workflows.js
+│   │   │   └── executions.js
+│   │   └── middleware/
+│   │       ├── auth.js
+│   │       └── errorHandler.js
+│   ├── config/
+│   │   └── app.js
+│   └── app.js
 └── tests/
+    ├── contract/
+    ├── integration/
+    └── unit/
 
 frontend/
 ├── src/
 │   ├── components/
+│   │   ├── Dashboard/
+│   │   ├── WorkflowCard/
+│   │   ├── ExecutionList/
+│   │   ├── StatusIndicator/
+│   │   └── Charts/
 │   ├── pages/
-│   └── services/
+│   │   └── DashboardPage/
+│   ├── services/
+│   │   ├── apiClient.js
+│   │   └── dashboardService.js
+│   ├── hooks/
+│   │   └── useRealTimeData.js
+│   └── utils/
+│       └── formatters.js
+├── public/
 └── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+    ├── components/
+    └── integration/
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: Selected web application structure with separate backend and frontend. Backend serves as API proxy to n8n instance, frontend provides React-based dashboard interface. This separation enables proper testing boundaries and follows constitutional TDD requirements.
 
 ## Phase 0: Outline & Research
 1. **Extract unknowns from Technical Context** above:
@@ -202,18 +214,18 @@ directories captured above]
 *This checklist is updated during execution flow*
 
 **Phase Status**:
-- [ ] Phase 0: Research complete (/plan command)
-- [ ] Phase 1: Design complete (/plan command)
-- [ ] Phase 2: Task planning complete (/plan command - describe approach only)
+- [x] Phase 0: Research complete (/plan command)
+- [x] Phase 1: Design complete (/plan command)
+- [x] Phase 2: Task planning complete (/plan command - describe approach only)
 - [ ] Phase 3: Tasks generated (/tasks command)
 - [ ] Phase 4: Implementation complete
 - [ ] Phase 5: Validation passed
 
 **Gate Status**:
-- [ ] Initial Constitution Check: PASS
-- [ ] Post-Design Constitution Check: PASS
-- [ ] All NEEDS CLARIFICATION resolved
-- [ ] Complexity deviations documented
+- [x] Initial Constitution Check: PASS
+- [x] Post-Design Constitution Check: PASS
+- [x] All NEEDS CLARIFICATION resolved
+- [x] Complexity deviations documented
 
 ---
 *Based on Constitution v1.0.0 - See `.specify/memory/constitution.md`*
