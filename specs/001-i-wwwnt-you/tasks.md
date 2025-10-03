@@ -42,21 +42,21 @@
 - Frontend: React components with hooks, services, utils
 
 ## Phase 3.1: Setup
-- [ ] T001 Create project structure per implementation plan (backend/, frontend/, tests/)
-- [ ] T002 Initialize Node.js backend with Express.js, TypeScript, Jest dependencies
-- [ ] T003 Initialize React frontend with TypeScript, Chart.js, React Testing Library
-- [ ] T004 [P] Configure ESLint and Prettier for backend in backend/.eslintrc.js
-- [ ] T005 [P] Configure ESLint and Prettier for frontend in frontend/.eslintrc.js
-- [ ] T006 [P] Setup Jest configuration for backend in backend/jest.config.js
-- [ ] T007 [P] Setup Jest and RTL configuration for frontend in frontend/jest.config.js
+- [X] T001 Create project structure per implementation plan (backend/, frontend/, tests/)
+- [X] T002 Initialize Node.js backend with Express.js, TypeScript, Jest dependencies
+- [X] T003 Initialize React frontend with TypeScript, Chart.js, React Testing Library
+- [X] T004 [P] Configure ESLint and Prettier for backend in backend/.eslintrc.js
+- [X] T005 [P] Configure ESLint and Prettier for frontend in frontend/.eslintrc.js
+- [X] T006 [P] Setup Jest configuration for backend in backend/jest.config.js
+- [X] T007 [P] Setup Jest and RTL configuration for frontend in frontend/jest.config.js
 
 ## Phase 3.2: Tests First (TDD) ⚠️ MUST COMPLETE BEFORE 3.3
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
-- [ ] T008 [P] Contract test GET /api/workflows in backend/tests/contract/workflows-api.test.js
-- [ ] T009 [P] Contract test GET /api/workflows/{workflowId} in backend/tests/contract/workflows-api.test.js
-- [ ] T010 [P] Contract test GET /api/executions in backend/tests/contract/executions-api.test.js
-- [ ] T011 [P] Contract test GET /api/executions/{executionId} in backend/tests/contract/executions-api.test.js
-- [ ] T012 [P] Integration test dashboard load scenario in frontend/tests/integration/dashboard-load.test.js
+- [X] T008 [P] Contract test GET /api/workflows in backend/tests/contract/workflows-api.test.js
+- [X] T009 [P] Contract test GET /api/workflows/{workflowId} in backend/tests/contract/workflows-api.test.js
+- [X] T010 [P] Contract test GET /api/executions in backend/tests/contract/executions-api.test.js
+- [X] T011 [P] Contract test GET /api/executions/{executionId} in backend/tests/contract/executions-api.test.js
+- [X] T012 [P] Integration test dashboard load scenario in frontend/tests/integration/dashboard-load.test.js
 - [ ] T013 [P] Integration test real-time updates scenario in frontend/tests/integration/realtime-updates.test.js
 - [ ] T014 [P] Integration test execution history display in frontend/tests/integration/execution-history.test.js
 - [ ] T015 [P] Integration test node-level details in frontend/tests/integration/node-details.test.js
